@@ -8,10 +8,13 @@ import { Todo } from '@myorg/data';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
   todos: Todo[] = [];
+  title: string;
 
   constructor(private http: HttpClient) {
     this.fetch();
+    this.title='todos';
   }
 
   fetch() { 

@@ -1,11 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent, NxWelcomeComponent],
+      imports: [        
+        HttpClientTestingModule 
+      ],
+      declarations: [AppComponent],
     }).compileComponents();
   });
 
@@ -26,7 +30,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome todos'
+      'todos'
     );
   });
 });
